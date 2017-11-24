@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+.resetInput {
+    width: 40% !important;
+    margin: auto;
+}
+
+.Reset {
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Inconsolata';
+}

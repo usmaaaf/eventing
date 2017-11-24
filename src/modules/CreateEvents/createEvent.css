@@ -1,0 +1,8 @@
+.Create{
+    margin-left: 0;
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 1px;
+}

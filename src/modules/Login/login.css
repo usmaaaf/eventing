@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.Login h2{
+    font-family: 'Inconsolata';
+}
+
+.col-form-label{
+    font-family: 'Nunito';
+    font-size: 1.2em;
+}
+
+.Login {
+    text-align: center;
+}
+
+.loginInput {
+    width: 40% !important;
+    margin: auto;
+}
