@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import DateTimePicker from 'material-ui-datetimepicker';
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
+import {Location} from './placeautocomplete';
 
 import './createEvent.css'
 
@@ -9,12 +10,15 @@ export class Create extends Component {
   constructor(){
     super();
     this.state= {
-      dateTime: null
+      dateTime: null,
     }
   }
+
+ 
+
   setDate = (dateTime) => this.setState({ dateTime });
 
-  render() {
+  render() {  
     return (
       <div>
         <form>
@@ -58,16 +62,9 @@ export class Create extends Component {
           <br/>
           <br/>
           <hr/>
-          <label className="col-form-label">
-            Location:
-          </label>
-          <input
-            className="form-control regInput"
-            type="text"
-            placeholder="Location"
-            ref="location"/>
-          <br/>
+          <Location />
         </form>
+      
       </div>
     );
   }
