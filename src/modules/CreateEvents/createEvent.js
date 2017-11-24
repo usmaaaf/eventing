@@ -3,6 +3,7 @@ import DateTimePicker from 'material-ui-datetimepicker';
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
 import {Location} from './placeautocomplete';
+import {Event} from '../../services/eventing'
 
 import './createEvent.css'
 
@@ -10,18 +11,40 @@ export class Create extends Component {
   constructor(){
     super();
     this.state= {
-      dateTime: null,
+      startTime: "",
+      endTime : "",
+      address: "",
+      latlng: ""
+
     }
   }
 
- 
+  setDate = (dateTime) => this.setState({ startTime: dateTime });
+  setEndDate = (dateTime) => this.setState({  endTime: dateTime });
 
-  setDate = (dateTime) => this.setState({ dateTime });
+  FormSubmit(e){
+    e.preventDefault();
+    Event.addEvent(this.refs.title.value,
+      this.refs.catogery.value,
+      this.refs.description.value,
+      this.state.startTime,
+      this.state.endTime,
+      this.state.address,
+      this.state.latlng
+    )
+  }
+
+  map(address, latlng){
+    this.setState({
+      address: address,
+      latlng: latlng
+    });
+  }
 
   render() {  
     return (
       <div>
-        <form>
+        <form onSubmit={(e) => this.FormSubmit(e)}>
           <label className="col-form-label">
             Title:
           </label>
@@ -56,13 +79,14 @@ export class Create extends Component {
             End Date/Time
           </label>
           <DateTimePicker
-            onChange={this.setDate}
+            onChange={this.setEndDate}
             DatePicker={DatePickerDialog}
             TimePicker={TimePickerDialog}/>
           <br/>
           <br/>
           <hr/>
-          <Location />
+          <Location addMap={(address, latLng) => this.map(address, latLng)} />
+          <input type="submit" value="submit"/>
         </form>
       
       </div>

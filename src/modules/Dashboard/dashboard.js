@@ -12,8 +12,8 @@ export class Dashboard extends Component {
     render() {
         return (
             <div>
-                <GridList cellHeight={"auto"} cols={12}>
-                    <GridTile cols={3}>
+                <GridList  cols={12}>
+                    <GridTile rows={3} cols={3}>
                         <div className="Dashboard">
                             <h2>Dashboard</h2>
                             <div className="image-div">
@@ -23,7 +23,7 @@ export class Dashboard extends Component {
                             <UserEdit/>
                         </div>
                     </GridTile>
-                    <GridTile cols={9}>
+                    <GridTile rows={3} cols={9}>
                         <Create/>
                     </GridTile>
                 </GridList>

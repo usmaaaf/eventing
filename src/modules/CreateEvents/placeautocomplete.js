@@ -22,10 +22,12 @@ export class Location extends Component {
 
         geocodeByAddress(this.state.address)
             .then(results => getLatLng(results[0]))
-            .then(latLng => this.stateSet(latLng))
+            .then(latLng => this.props.addMap(this.state.address, latLng))
             .catch(error => console.error('Error', error))
+        
     }
 
+    
     render() {
         const inputProps = {
             value: this.state.address,
@@ -47,11 +49,11 @@ export class Location extends Component {
 
         return (
             <div>
-                <form onSubmit={this.handleFormSubmit}>
+                <form>
                     <PlacesAutocomplete
                         inputProps={inputProps}
                         autocompleteItem={AutocompleteItem}/>
-                    <button type="submit">Submit</button>
+                    <button type="submit" onClick={this.handleFormSubmit}>Submit</button>
                 </form>
             </div>
 
