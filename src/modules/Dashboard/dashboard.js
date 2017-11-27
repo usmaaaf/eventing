@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {Create} from '../CreateEvents/createEvent';
-import {UserEdit} from './userprofileedit';
+import {UserEdit} from './components/userprofileedit';
 import {currentUser} from '../../data/users';
 import {GridList, GridTile} from 'material-ui/GridList';
-
+import {Event} from '../../services/eventing'
 import Avatar from './avatar.png';
 import './dashboard.css';
-
+import {Userevent} from './components/userevent';
+import { userEvent } from '../../data/events';
 export class Dashboard extends Component {
 
     render() {
@@ -23,8 +24,10 @@ export class Dashboard extends Component {
                             <UserEdit/>
                         </div>
                     </GridTile>
-                    <GridTile rows={3} cols={9}>
+                    <GridTile rows={10} cols={9}>
                         <Create/>
+                        <p>YOUR EVENTS</p>
+                        <Userevent userevents={userEvent[0]} />
                     </GridTile>
                 </GridList>
             </div>

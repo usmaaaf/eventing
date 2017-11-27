@@ -31,7 +31,8 @@ export class Create extends Component {
       this.state.endTime,
       this.state.address,
       this.state.latlng
-    )
+    );
+    Event.currentEvent();
   }
 
   map(address, latlng){

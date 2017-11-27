@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
-import {currentUser} from '../../data/users'
-import {Auth} from '../../services/authentication';
+import {currentUser} from '../../../data/users'
+import {Auth} from '../../../services/authentication';
 
 /**
  * Dialogs can be nested. This example opens a Date Picker from within a Dialog.
@@ -17,6 +17,7 @@ export class UserEdit extends Component {
     }
 
     componentDidMount() {
+        console.log(currentUser[0].name);
         this.setState({name: currentUser[0].name});
     };
 

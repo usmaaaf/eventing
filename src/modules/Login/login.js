@@ -5,6 +5,7 @@ import FontIcon from 'material-ui/FontIcon';
 
 import {currentUser} from '../../data/users.js';
 import {Auth} from '../../services/authentication';
+import {Event} from '../../services/eventing';
 import './login.css';
 
 export class Login extends Component {
@@ -18,6 +19,7 @@ export class Login extends Component {
         } else if (!isLoggedIn) {
             Auth.notify("error", 'Wrong email or Password');
         } else {
+            Event.currentEvent();
             Auth.notify("success", "Login Successful!");
             this
                 .props

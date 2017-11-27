@@ -7,10 +7,9 @@ const events = [{
     startDate: "",
     endDate: "",
     address: "",
-    latlng: "",
+    latlng: {lat: 24.877758, lng: 67.06884620000005},
 }];
 
-const userEvent = [{
-}];
+const userEvent = [];
 
 export {events, userEvent};

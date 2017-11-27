@@ -20,7 +20,7 @@ export class Location extends Component {
         event.preventDefault();
         console.log(this.state)
 
-        geocodeByAddress(this.state.address)
+    geocodeByAddress(this.state.address)
             .then(results => getLatLng(results[0]))
             .then(latLng => this.props.addMap(this.state.address, latLng))
             .catch(error => console.error('Error', error))
@@ -37,9 +37,6 @@ export class Location extends Component {
             autoFocus: true
         }
 
-        //   const options = {     location: new google.maps.LatLng(24.8614622,
-        // 67.00993879999999),     radius: 5000,     types: ['address']   }
-
         const AutocompleteItem = ({formattedSuggestion}) => (
             <div>
                 <strong>{formattedSuggestion.mainText}</strong>{' '}
@@ -50,7 +47,7 @@ export class Location extends Component {
         return (
             <div>
                 <form>
-                    <PlacesAutocomplete
+                    <PlacesAutocomplete 
                         inputProps={inputProps}
                         autocompleteItem={AutocompleteItem}/>
                     <button type="submit" onClick={this.handleFormSubmit}>Submit</button>
