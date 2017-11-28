@@ -11,7 +11,11 @@ import {events, userEvent} from '../data/events';
 import Avatar from '../modules/Dashboard/avatar.png';
 
 export class Event {
-
+    static deleteEvent = (event)=>{
+        console.log(event);
+        const eventNew = events.findIndex((events) => (events.id === event.id));
+        events.splice(eventNew, 1);
+    };
     
     static updateEvent = (updatedevent) => {
         console.log("Event Update Started", updatedevent, updatedevent.id);
@@ -24,6 +28,7 @@ export class Event {
                     event.startDate= updatedevent.start
                     event.endDate= updatedevent.end
                     event.address= updatedevent.address
+                    event.latlng = updatedevent.latlng
                 }
                 return event;
             })

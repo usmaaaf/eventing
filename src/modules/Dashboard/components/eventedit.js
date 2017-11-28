@@ -8,6 +8,7 @@ import {currentUser} from '../../../data/users'
 import {Auth} from '../../../services/authentication';
 import {Event} from '../../../services/eventing';
 import moment from 'moment';
+import {Location} from '../../Home/components/places';
 
 /**
  * Dialogs can be nested. This example opens a Date Picker from within a Dialog.
@@ -41,6 +42,13 @@ export class EventEdit extends Component {
         latlng: this.props.latlng});
     };
 
+    map(address, latlng){
+        this.setState({
+          address: address,
+          latlng: latlng
+        });
+      }
+
     setDate = (dateTime) => this.setState({ start: moment(dateTime).format('YYYY-MM-DD hh:mm:ss a') });
     setEndDate = (dateTime) => this.setState({  end: moment(dateTime).format('YYYY-MM-DD hh:mm:ss a') });
  
@@ -48,6 +56,7 @@ export class EventEdit extends Component {
         e.preventDefault();
         Auth.notify("success", "Event Updated");
         Event.updateEvent(this.state);
+        console.log(this.state);
         this.setState({open: false});
     }
     handleChange(event) {
@@ -109,7 +118,7 @@ export class EventEdit extends Component {
                             value={this.state.description}
                             />
                         <br/>
-                        <label className="col-form-label">
+                        {/* <label className="col-form-label">
                             Address:
                         </label>
                         <input
@@ -119,7 +128,7 @@ export class EventEdit extends Component {
                             onChange={(e) => this.handleChange(e)}
                             value={this.state.address}
                             />
-                        <br/>
+                        <br/> */}
                         <label className="col-form-label">
                            Start Date:
                         </label>
@@ -139,6 +148,7 @@ export class EventEdit extends Component {
                         DatePicker={DatePickerDialog}
                         TimePicker={TimePickerDialog}/>
                     <br/>
+                    < Location event={this.state} addMap={(address, latLng) => this.map(address, latLng)} />
                         <br/>
                         <RaisedButton type="submit" label="Update Event" primary={true}/>
                     </form>

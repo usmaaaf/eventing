@@ -1,0 +1,9 @@
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-bar > div{
+    width: 100%;
+}

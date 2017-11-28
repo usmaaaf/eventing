@@ -5,10 +5,12 @@ import moment from 'moment'
 import {EventEdit} from './eventedit';
 import {userEvent} from '../../../data/events'
 import Avatar from '../avatar.png'
+import './userevent.css';
 
 
 import IconButton from "material-ui/IconButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
+import { Event } from '../../../services/eventing';
 
 export class Userevent extends Component {
     constructor(){
@@ -24,22 +26,21 @@ componentDidMount(){
     console.log(this.state);
 }
 
-// componentWillReceiveProps(props){
-//     console.log("Hii");
-//     this.setState({
-//         event: props.userevents
-//     })
-// }
+deleteEvent(event){
+    Event.deleteEvent(event);
+}
     
     render() {
         console.log(this.state.event);
         return (
             <div>
                 {this.state.event.map((event, index) => {
+                    const eventdelete = event;
                     return (<Card key={index}>
                         
-                    <CardHeader
-                      title={<div><span>{event.title}</span> <span>X</span></div>}
+                    <CardHeader className="header-bar"
+                      title={<div className="title"><span>{event.title}</span> 
+                      <span onClick={(eventdelete) => this.deleteEvent(event)}>X</span></div>}
                       subtitle={event.catogery}
                     /> 
                     
