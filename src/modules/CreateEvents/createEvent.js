@@ -126,9 +126,8 @@ export class Create extends Component {
               DatePicker={DatePickerDialog}
               TimePicker={TimePickerDialog}/>
           </div>
-          <hr/>
           <Location addMap={(address, latLng) => this.map(address, latLng)}/>
-          <RaisedButton type="submit" label="ADD EVENT"/>
+          <RaisedButton className="event-submit" type="submit" label="ADD EVENT"/>
         </form>
 
       </div>

@@ -28,6 +28,11 @@ export class View extends Component {
     this.setState({open: false});
   };
 
+  handleModalClose = (buttonClicked) => {
+    console.log("Apple");
+    this.setState({open: false});
+  };
+
   render() {
     const actions = [
       <FlatButton
@@ -46,16 +51,15 @@ export class View extends Component {
         <RaisedButton style={style} label="Event Details" onClick={this.handleOpen} />
         <Dialog 
         className="dialog"
-          
+        autoScrollBodyContent={true}
+        onRequestClose={() => this.handleClose()}
           actions={actions}
-          modal={true}
           contentStyle={customContentStyle}
           open={this.state.open}
         >
         <div className="view-head"><FontIcon className="material-icons">bookmark</FontIcon><span className="view-title">Event Summary</span></div>
         
          <div><h1 className="title">{this.props.title}</h1> </div>
-         {/* <p className="location"><FontIcon className="material-icons">place</FontIcon><span className="event-text">{this.props.address}</span></p> */}
          <div className="date">
          <div>
           <h4 className="date-label"> Event Starts at: </h4>
@@ -80,7 +84,7 @@ export class View extends Component {
          
          <MyMap
           loadingElement={ <div style={ { height: `100%` } } /> }
-          containerElement={ <div style={ { height: `600px` } } /> }
+          containerElement={ <div style={ { height: `250px` } } /> }
           mapElement={ <div style={ { height: `100%` } } /> }
           latLng={this.props.latlng} />
         </Dialog>

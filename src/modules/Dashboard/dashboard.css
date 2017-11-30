@@ -15,16 +15,17 @@
     font-size: 2.2em;
 }
 .dashboard{
-    background-color: #4D394B;
+    background-color: rgb(255, 255, 255);
 }
 
 .dash-text{
-    color: #e8e8e8;
+    color: #222121;
     font-family: 'Spectral SC', sans-serif;
 }
 
 .subheader-text{
-    color: #e8e8e8 !important;
+    color: #222121 !important;
+    font-size: 1.2em !important;
 }
 .paper{
     margin: 5px;
@@ -33,7 +34,6 @@
     z-index: 999999;
 }
 #avatar-img{
-    /* border: 1px solid grey; */
     border-radius: 50%;
 }
 

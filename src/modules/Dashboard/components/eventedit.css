@@ -3,10 +3,7 @@
 
 
 
-.create-event > div{
-    width: 70%;
-}
-.create-event{
+.edit-event{
     display: flex !important;
     flex-direction: row;
     justify-content: center;
@@ -17,35 +14,24 @@
 .event-submit{
     background-color: #B82601;
 }
-.locate{
-    margin-bottom: 15px;
-}
 .locate input{
-    text-align: center;
-    height: 32px !important;
-    font-size: 1.0em;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    color: rgba(0, 0, 0, 0.87);
-    opacity: 1;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    margin-top: 12px;
-    margin-bottom: -12px;
-    box-sizing: border-box;
     font-family: 'Raleway' !important;
-    border: none;
-    border-bottom: 1px solid #a9a9a9
 }
 
 form{
     padding: 10px;
 }
-.add-button{
-    margin: 5px;
+
+h3{
+    text-align: center;
+    font-family: 'Spectral SC' !important;
+}
+
+.edit-submit button div div span{
+    padding: 0 !important;
 }
 
 .input-field{
-    text-align: center;
     font-family: 'Raleway' !important;
 }
 

@@ -48,19 +48,22 @@
 .login-button > button > div > div{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+}
+.login-button{
+    background: none !important;
+    min-width: 100px !important;
 }
 .login-button > button{
-    background-color: #d8a731 !important;
+    background-color: #B82601 !important;
 }
 
 .login-button > button > div > div > span{
     color: white !important;
     margin: auto;
-    padding: 0 !important;
+    padding: 0 6px !important;
 }
 .footer-note{
-    
     width: 100% !important;
     font-size: 2em !important;
     font-family: 'Paprika', sans-serif !important;
@@ -69,8 +72,12 @@
 }
 .Home, .Dashboard, .Log{
     padding-top: 5em;
-    padding-bottom: 10em;
+    padding-bottom: 1em;
 }
+.Login{
+    padding-bottom: 3.05em;
+}
+
 
 .button-logout{
     color: white !important;
@@ -78,14 +85,11 @@
 .footer{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-self: flex-end;
+    justify-content: center !important;
     background-color: #1D2731 !important;
-    position: fixed !important;
-    bottom: 0;
     z-index: 3;
     width: 100% !important;
-    height: 10% !important;
+    height: 200px !important;
 }
 /* color-palletes{
     #000000, #062F4F, #813772, #B82601

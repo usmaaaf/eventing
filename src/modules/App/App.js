@@ -42,10 +42,6 @@ export class App extends Component {
                   .parse(localStorage.getItem("userState"))
                   .isLoggedIn
                   ? <div className="dash-button">
-                      <ToolbarTitle
-                        text="Logout"
-                        className="button-logout nav-title"
-                        onClick={() => this.logout()}/>
                       <Link to={"/"} className="button-seperate">
                         <ToolbarTitle className='nav-title' text="Home"/>
                       </Link>
@@ -72,11 +68,11 @@ export class App extends Component {
                   ? JSON
                     .parse(localStorage.getItem("userState"))
                     .isLoggedIn
-                    ? <Link to={"/logout"}>
-                        <RaisedButton label="Logout" labelStyle={styles} className="login-button">
+                    ? 
+                        <RaisedButton  onClick={() => this.logout()} label="Logout" labelStyle={styles} className="login-button">
                           <FontIcon className="material-icons">input</FontIcon>
                         </RaisedButton>
-                      </Link>
+                      
                     : <Link to={"/login"}>
                         <RaisedButton label="Login/Signup" labelStyle={styles} className="login-button">
                           <FontIcon className="material-icons">input</FontIcon>
@@ -93,9 +89,7 @@ export class App extends Component {
         </div>
 
         <div>
-          <Toolbar className="footer">
-            <ToolbarTitle className="footer-note" text="Eventing"/>
-          </Toolbar>
+         
           < ToastContainer autoClose={1800}/>
         </div>
       </div>

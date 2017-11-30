@@ -14,7 +14,7 @@ export class Location extends Component {
     render() {
 
         return (
-            <div>
+            <div className="locate">
                 <Autocomplete
                     style={{
                     width: '90%'

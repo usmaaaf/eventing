@@ -66,14 +66,20 @@ export class Register extends Component {
     caution() {
         if (this.state.pass.length > 5) {
             this.setState({error: ""});
-        } else {
+        } 
+        else {
             this.setState({error: "Your password must be 6 characters long."});
         }
     }
 
     render() {
         const styles = {
-            fontFamily: "Raleway"
+            label:{
+                fontFamily: "Raleway",
+                color: "white"
+            },
+            back: {
+            backgroundColor: "#062f4f"}
           }
 
         return (
@@ -131,7 +137,7 @@ export class Register extends Component {
                             onChange={(event, newValue) => this.handleOnChange(event, newValue)}/>
                     </div>
                     <br/>
-                    <RaisedButton type="submit" labelStyle={styles} label="Register" />
+                    <RaisedButton type="submit" overlayStyle={styles.back} labelStyle={styles.label} label="Register" />
                 </form>
 
             </div>

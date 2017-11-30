@@ -45,7 +45,12 @@ export class Login extends Component {
 
     render() {
         const styles = {
-            fontFamily: "Raleway"
+            label:{
+                fontFamily: "Raleway",
+                color: "white"
+            },
+            back: {
+            backgroundColor: "#062f4f"}
           }
         return (
             <div className="Login">
@@ -75,7 +80,7 @@ export class Login extends Component {
                         />
                     </div>
                     <br/>
-                    <RaisedButton labelStyle={styles} type="submit" value="login">Login</RaisedButton>
+                    <RaisedButton overlayStyle={styles.back} labelStyle={styles.label} type="submit" label="Login"/>
 
                 </form>
 
