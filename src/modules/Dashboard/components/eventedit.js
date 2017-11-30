@@ -54,11 +54,10 @@ export class EventEdit extends Component {
  
     infoEdit(e) {
         e.preventDefault();
-        Auth.notify("success", "Event Updated");
-        Event.updateEvent(this.state);
-        console.log(this.state);
+        this.props.updateEvent(this.state);
         this.setState({open: false});
     }
+    
     handleChange(event) {
         
         this.setState({

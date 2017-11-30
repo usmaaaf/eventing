@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+.card-footer p{
+    font-family: 'Raleway';
+    font-size: 1.2em;
+    color: #B82601 !important;
+    
+}
+
+.card-footer{
+    justify-content: center !important;
+}
+.event-address{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+}
+.event-address p{
+    font-size: 1.2em !important;
+    color: #e8e8e8 !important;
+    font-family: 'Spectral SC', sans-serif !important;
+}
+
+.event-address span{
+    color: #e8e8e8 !important;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.card-footer span{
+    color: #B82601 !important;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.event-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-sizing: border-box;
+    margin: 5px;
+    flex-wrap: wrap !important;
+    
+}
+
+.view-button{
+    text-align: center;
+}
+
+.card{
+    flex-grow: 1;
+    flex-basis: 324px;
+    /* min-width: 28%; */
+    margin: 5px 10px;
+    margin-top: 10px;
+    background-image: linear-gradient(to bottom left, #062f4f 0%, #813772 100%);
+}
+
+.card-header  {
+    text-align: center;
+}
+
+.card-header div {
+    padding: 0 !important;
+    width: 100%;
+}
+.card-header div span{
+    font-family: 'Raleway';
+}

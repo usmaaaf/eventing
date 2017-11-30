@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
-
+import TextField from 'material-ui/TextField';
 
 import {currentUser} from '../../data/users.js';
 import {Auth} from '../../services/authentication';
@@ -10,16 +10,29 @@ import './login.css';
 
 export class Login extends Component {
 
+    constructor(){
+        super();
+        this.state = {
+                email: "",
+                pass : ""
+        }
+    }
+    
+    handleOnChange(event, newValue){
+        this.setState({
+            [event.target.name]: newValue
+        })
+        
+    }
     userMatch(e) {
         e.preventDefault();
-        const isLoggedIn = Auth.login(this.refs.email.value, this.refs.pass.value);
-        const emailCheck = Auth.emailCheck(this.refs.email.value);
+        const isLoggedIn = Auth.login(this.state.email, this.state.pass);
+        const emailCheck = Auth.emailCheck(this.state.email);
         if (emailCheck) {
             Auth.notify("error", "Invalid Email Address");
         } else if (!isLoggedIn) {
             Auth.notify("error", 'Wrong email or Password');
         } else {
-            Event.currentEvent();
             Auth.notify("success", "Login Successful!");
             this
                 .props
@@ -31,33 +44,41 @@ export class Login extends Component {
     }
 
     render() {
+        const styles = {
+            fontFamily: "Raleway"
+          }
         return (
             <div className="Login">
-                <h2>Login
-                </h2>
+
                 <form onSubmit={(e) => this.userMatch(e)}>
-                    <label className="col-form-label">
-                    <FontIcon className="material-icons">email</FontIcon>
-                    </label>
-                    <input
-                        className="form-control loginInput"
-                        type="text"
-                        placeholder="Email"
-                        ref="email"/>
+                    <div className="input-fields top-field">
+                        <FontIcon className="material-icons">email</FontIcon>
+
+                        <TextField
+                        id="email"
+                        name="email"
+                            className="form-control loginInput"
+                            type="text"
+                            placeholder="Email"
+                            onChange={(event, newValue) => this.handleOnChange(event, newValue)}/>
+                    </div>
                     <br/>
-                    <label className="col-form-label">
-                    <FontIcon className="material-icons">lock</FontIcon>
-                    </label>
-                    <input
-                        className="form-control loginInput"
+                    <div className="input-fields">
+                        <FontIcon className="material-icons">lock</FontIcon>
+
+                        <TextField
+                        name="pass"
+                        onChange={(event, newValue) => this.handleOnChange(event, newValue)}
+                        id="pass"
                         type="password"
                         placeholder="Password"
-                        ref="pass"/>
+                        />
+                    </div>
                     <br/>
-                    <RaisedButton type="submit" value="login">Login</RaisedButton>
+                    <RaisedButton labelStyle={styles} type="submit" value="login">Login</RaisedButton>
 
                 </form>
-               
+
             </div>
         );
     }

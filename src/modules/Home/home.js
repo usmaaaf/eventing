@@ -13,30 +13,10 @@ export class Home extends Component {
   
     render() {
         return (
-            <div className="Home">
-            <h2>EVENTING</h2>   
-            <GridList cols={12}>
-                <GridTile rows={8} cols={9}>
+            <div className="Home"> 
+            <h1>Upcoming Events</h1> 
+            <h4>Upcoming Events In Pakistan: Including concerts, exhibitions, festivals, sports, arts, workshops and more.</h4>
                 < CurrentEvents/>
-                </GridTile>
-                
-                <GridTile rows={5} cols={3}>
-                <Tabs>
-                        <Tab label="Login">
-                            <div>
-                            <Login history={this.props.history} />
-                            </div>
-                        </Tab>
-                        <Tab label="Register">
-                            <div>
-                            < Register history={this.props.history}/>
-                            </div>
-                        </Tab>
-                    </Tabs> 
-                    <Link to={"/reset"}><p>Forgot Password?</p></Link>
-                    </GridTile>
-            </GridList> 
-            
             </div>
         );
     }

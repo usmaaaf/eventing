@@ -1,8 +1,35 @@
-.Create{
-    margin-left: 0;
-    position: relative;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    min-width: 1px;
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+
+
+
+.create-event > div{
+    width: 70%;
+}
+.create-event{
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+}
+.datetime-container input{
+    text-align: center;
+}
+
+form{
+    padding: 10px;
+}
+
+.input-field{
+    font-family: 'Raleway' !important;
+}
+
+.label{
+    margin: auto 0;
+    margin-right: 5px;
+    font-family: 'Spectral SC' !important;
+}
+
+.datetime-container{
+    font-family: 'Raleway' !important;
+   
 }

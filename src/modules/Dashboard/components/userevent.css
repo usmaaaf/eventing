@@ -7,3 +7,13 @@
 .header-bar > div{
     width: 100%;
 }
+
+.action-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.margin-event, .margin-card{
+    /* margin-left: 0 !important; */
+}

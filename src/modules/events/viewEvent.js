@@ -4,6 +4,10 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {events, userEvent} from '../../data/events';
 import {MyMap} from '../events/googlemap';
+import FontIcon from 'material-ui/FontIcon';
+import moment from 'moment'
+
+import './viewevent.css'
 
 const customContentStyle = {
   height: '100%',
@@ -27,37 +31,56 @@ export class View extends Component {
   render() {
     const actions = [
       <FlatButton
-        label="Cancel"
-        primary={true}
-        onClick={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
+        label="Done"
         primary={true}
         onClick={this.handleClose}
       />,
     ];
 
+    const style = {
+      // height: "32px",
+      
+    };
     return (
-      <div>
-        <RaisedButton label="Event Details" onClick={this.handleOpen} />
-        <Dialog
-          title="Event Details"
+      <div className="view-button">
+        <RaisedButton style={style} label="Event Details" onClick={this.handleOpen} />
+        <Dialog 
+        className="dialog"
+          
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
           open={this.state.open}
         >
-         <h1>{this.props.title}</h1>
-         <p>{this.props.catogery}</p>
-         <p>{this.props.description}</p>
-         <p>{this.props.address}</p>
-         <p>{this.props.start}</p>
-         <p>{this.props.end}</p>
+        <div className="view-head"><FontIcon className="material-icons">bookmark</FontIcon><span className="view-title">Event Summary</span></div>
+        
+         <div><h1 className="title">{this.props.title}</h1> </div>
+         {/* <p className="location"><FontIcon className="material-icons">place</FontIcon><span className="event-text">{this.props.address}</span></p> */}
+         <div className="date">
+         <div>
+          <h4 className="date-label"> Event Starts at: </h4>
+          <div className="start">
+              <p><FontIcon className="material-icons">date_range</FontIcon><span className="event-text">{moment(this.props.start).format('YYYY-MM-DD')}</span></p> 
+              <p><FontIcon className="material-icons">access_time</FontIcon><span className="event-text">{moment(this.props.start).format('hh:mm:ss a')}</span></p> 
+          </div>
+          </div>
+            <div>
+              <h4 className="date-label"> Event Ends at: </h4>
+              <div className="end">
+                  <p><FontIcon className="material-icons">date_range</FontIcon><span className="event-text">{moment(this.props.end).format('YYYY-MM-DD')}</span></p>
+                  <p><FontIcon className="material-icons">access_time</FontIcon><span className="event-text">{moment(this.props.end).format('hh:mm:ss a')}</span></p> 
+              </div>
+            </div>
+         </div>
+         <div className="">
+         <p className="description-label">What will happen at the event?</p>
+         <p className="description">{this.props.description}</p>
+         </div>
+        
          
          <MyMap
           loadingElement={ <div style={ { height: `100%` } } /> }
-          containerElement={ <div style={ { height: `400px` } } /> }
+          containerElement={ <div style={ { height: `600px` } } /> }
           mapElement={ <div style={ { height: `100%` } } /> }
           latLng={this.props.latlng} />
         </Dialog>

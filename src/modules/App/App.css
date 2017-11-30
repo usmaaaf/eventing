@@ -1,20 +1,92 @@
 @import url('https://fonts.googleapis.com/css?family=Paprika');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
 .toolbar{
-    padding-top: 10px !important;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    
+    background-color: #1D2731 !important;
 }
 
 .eventing{
     padding: auto;
     margin: auto;
     font-family: 'Paprika', sans-serif;
+    color: white;
+}
+
+
+.nav-title:focus,
+.nav-title:link,
+.nav-title:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.button-seperate{
+    text-decoration: none;
+}
+
+.button-seperate > span{
+    color: white;
+    text-decoration: none;
 }
 
 
 
-
+.icon {
+    color: white !important;
+}
 
 .nav-buttons > div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
+.login-button > button > div > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.login-button > button{
+    background-color: #d8a731 !important;
+}
+
+.login-button > button > div > div > span{
+    color: white !important;
+    margin: auto;
+    padding: 0 !important;
+}
+.footer-note{
+    
+    width: 100% !important;
+    font-size: 2em !important;
+    font-family: 'Paprika', sans-serif !important;
+    color: white !important;
+    text-align: center !important;
+}
+.Home, .Dashboard, .Log{
+    padding-top: 5em;
+    padding-bottom: 10em;
+}
+
+.button-logout{
+    color: white !important;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-end;
+    background-color: #1D2731 !important;
+    position: fixed !important;
+    bottom: 0;
+    z-index: 3;
+    width: 100% !important;
+    height: 10% !important;
+}
+/* color-palletes{
+    #000000, #062F4F, #813772, #B82601
+} */

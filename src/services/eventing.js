@@ -14,7 +14,9 @@ export class Event {
     static deleteEvent = (event)=>{
         console.log(event);
         const eventNew = events.findIndex((events) => (events.id === event.id));
+        console.log(eventNew);
         events.splice(eventNew, 1);
+        return events;
     };
     
     static updateEvent = (updatedevent) => {
@@ -32,11 +34,11 @@ export class Event {
                 }
                 return event;
             })
+            return events;
         };
     
 
     static addEvent = (title, catogery, description, start, end, address, latlng) => {
-        console.log(title, catogery, description, start, end, address, latlng);
         const event = {
             userId: currentUser[0].id,
             id: uuid.v4(),
@@ -49,14 +51,17 @@ export class Event {
             latlng: latlng,
         }
         events.push(event);
-        return event;
+        return events;
     };
 
-    static currentEvent = () => {
-        userEvent.pop();
-        const current = events.filter((event) => 
-            event.userId === currentUser[0].id)
-                userEvent.push(current);
-                console.log('asdas0', userEvent)
-        };
+    // static currentEvent = () => {
+    //     // userEvent.pop();
+    //     console.log("Ï am events", events);
+    //     const current = events.map((event) =>{ 
+    //         if(event.userId === currentUser[0].id){
+    //             userEvent.push(event);
+    //         }
+    //     })
+    //     return userEvent;
+    //     };
 }

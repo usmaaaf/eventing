@@ -7,13 +7,34 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
 
 .Dashboard h2{
     font-family: 'Indie Flower';
     font-size: 2.2em;
+}
+.dashboard{
+    background-color: #4D394B;
+}
+
+.dash-text{
+    color: #e8e8e8;
+    font-family: 'Spectral SC', sans-serif;
+}
+
+.subheader-text{
+    color: #e8e8e8 !important;
+}
+.paper{
+    margin: 5px;
+}
+.pac-container{
+    z-index: 999999;
+}
+#avatar-img{
+    /* border: 1px solid grey; */
+    border-radius: 50%;
 }
 
 .Dashboard{
@@ -21,8 +42,15 @@
 }
 
 .col-form-label{
-    font-family: 'Nunito';
+    font-family: 'Raleway';
     font-size: 1.2em;
     padding-top: 5px;
     color: #000;
+}
+
+.add-button button div div{
+    background-color: #B82601;
+}
+.add-button button div div:hover{
+    background-color: #062f4f !important;
 }

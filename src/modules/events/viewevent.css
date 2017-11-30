@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+.view-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.view-title {
+    font-size: 1.8em;
+    font-family: 'Spectral SC', sans-serif !important;
+}
+.start p, .end p{
+    display: flex;
+}
+.material-icons {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px !important;
+    /* border: rgb(179, 175, 174) !important; */
+    color: #B82601 !important;
+}
+.event-text{
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'Raleway';
+}
+.title{
+    margin: auto;
+    display: block !important;
+    text-align: center !important;
+}
+.date-label{
+    text-align: center;
+    margin: 0;
+    font-family: 'Raleway';
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.description-label{
+    color: rgb(43, 42, 42);
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0;
+    font-family: 'Spectral SC';
+}
+.description{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5px;
+    font-family: 'Raleway';
+}
+.start,
+.end {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.location {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

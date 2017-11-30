@@ -14,7 +14,10 @@
     text-align: center;
 }
 
-.loginInput {
-    width: 40% !important;
-    margin: auto;
+.input-fields span{
+    margin-right: 10px;
+}
+.input-fields{
+    display: flex;
+    justify-content: center;
 }

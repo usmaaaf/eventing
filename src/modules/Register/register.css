@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+
 
 .register {
     display: flex;
@@ -16,16 +17,15 @@
     font-size: 13px;
 }
 
-.regInput {
-    width: 40% !important;
-    margin: auto;
+.input-fields span{
+    margin-right: 10px;
 }
 
-.Register h2{
-    font-family: 'Inconsolata';
+.input-fields{
+    display: flex;
+    justify-content: center;
 }
 
-.col-form-label{
-    font-family: 'Nunito';
-    font-size: 1.2em;
+.top-field{
+    padding: 12px;
 }

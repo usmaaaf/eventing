@@ -3,18 +3,30 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import {Login, Register} from '../index'
 import {Link} from 'react-router-dom';
 
+
 import './log-sign.css';
 
 
 export class Log extends Component {
+
   
     render() {
+        const styles = {
+            ink :{
+                backgroundColor: "#813772",
+                height: "3px"
+            },
+            tab:{
+                backgroundColor: "#062f4f"
+            }
+        }
+
         return (
             <div className="Log">
                
             <div>
-                <p>Eventing</p>
-                <Tabs>
+                
+                <Tabs inkBarStyle={styles.ink} tabItemContainerStyle={styles.tab} className="tabs">
                         <Tab label="Login">
                             <div>
                             <Login history={this.props.history} />
@@ -27,7 +39,7 @@ export class Log extends Component {
                         </Tab>
                     </Tabs> 
                    
-            <Link to={"/reset"}><p>Forgot Password?</p></Link>
+            <Link className="reset" to={"/reset"}><p>Forgot Password?</p></Link>
             </div>
             </div>
         );
