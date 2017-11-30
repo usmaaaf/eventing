@@ -64,7 +64,7 @@ export class Register extends Component {
     }
 
     caution() {
-        if (this.state.pass.length > 5) {
+        if (this.state.pass.length > 4) {
             this.setState({error: ""});
         } 
         else {

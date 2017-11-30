@@ -2,7 +2,9 @@
   "name": "react-eventmanagement",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://usmaaaf.github.io/eventing/",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "material-ui": "^0.19.4",
     "material-ui-datetimepicker": "^1.0.3",
     "moment": "^2.19.2",
@@ -23,6 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

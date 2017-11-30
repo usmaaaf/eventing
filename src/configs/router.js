@@ -14,7 +14,7 @@ import {Toolbar, ToolbarTitle} from 'material-ui';
 
 const Routers = () => (
 		<MuiThemeProvider>
-			<BrowserRouter>
+			<BrowserRouter basename="/eventing">
 				<div>
 					<Route path="/" component={App}/>
 					<Route exact path="/" component={Home}/>
