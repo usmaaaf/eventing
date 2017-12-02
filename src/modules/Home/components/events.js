@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
 import moment from 'moment'
-import {userEvent, events} from '../../../data/events'
-import Avatar from '../../Dashboard/avatar.png'
+import {events} from '../../../data/events'
 import { View } from '../../events/viewEvent';
 import './events.css';
 import FontIcon from 'material-ui/FontIcon';

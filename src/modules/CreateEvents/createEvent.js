@@ -3,10 +3,8 @@ import DateTimePicker from 'material-ui-datetimepicker';
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
 import {Location} from './placeautocomplete';
-import {Event} from '../../services/eventing'
 import TextField from 'material-ui/TextField';
 import {RaisedButton} from 'material-ui';
-import FontIcon from 'material-ui/FontIcon';
 
 import './createEvent.css';
 import {Auth} from '../../services/authentication';
@@ -15,6 +13,7 @@ export class Create extends Component {
   constructor() {
     super();
     this.state = {
+      error: "",
       startTime: "",
       endTime: "",
       address: "",
@@ -65,7 +64,19 @@ export class Create extends Component {
   }
 
   render() {
-
+    const styles = {
+      underlineStyle: {
+          borderColor: "#062f4f",
+        },
+        hint:{
+          width: "100%",
+          display: "flex",
+          justifyContent : "center"
+        },
+        input:{
+          textAlign: "center"
+        }
+    }
     return (
       <div className="create-event">
 
@@ -76,6 +87,9 @@ export class Create extends Component {
               Title:
             </p>
             <TextField
+            inputStyle={styles.input}
+            hintStyle={styles.hint}
+            underlineFocusStyle={styles.underlineStyle}
               className="input-field "
               type="text"
               hintText="Title"
@@ -88,6 +102,9 @@ export class Create extends Component {
               Catogery:
             </p>
             <TextField
+            inputStyle={styles.input}
+            hintStyle={styles.hint}
+            underlineFocusStyle={styles.underlineStyle}
               className="input-field "
               type="text"
               hintText="Catogery e.g Programming"
@@ -100,6 +117,9 @@ export class Create extends Component {
               Description:
             </p>
             <TextField
+            inputStyle={styles.input}
+            hintStyle={styles.hint}
+            underlineFocusStyle={styles.underlineStyle}
               className="input-field "
               type="text"
               multiLine={true}
@@ -113,6 +133,7 @@ export class Create extends Component {
               Start Date/Time:
             </p>
             <DateTimePicker
+            
               onChange={this.setDate}
               DatePicker={DatePickerDialog}
               TimePicker={TimePickerDialog}/>
@@ -122,6 +143,8 @@ export class Create extends Component {
               End Date/Time:
             </p>
             <DateTimePicker
+            
+             style={{color: "red"}}
               onChange={this.setEndDate}
               DatePicker={DatePickerDialog}
               TimePicker={TimePickerDialog}/>

@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import {events} from '../../data/events'
+import React from 'react';
 
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 

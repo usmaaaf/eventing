@@ -5,7 +5,6 @@ import TextField from 'material-ui/TextField';
 
 import {currentUser} from '../../data/users.js';
 import {Auth} from '../../services/authentication';
-import {Event} from '../../services/eventing';
 import './login.css';
 
 export class Login extends Component {
@@ -33,14 +32,18 @@ export class Login extends Component {
         } else if (!isLoggedIn) {
             Auth.notify("error", 'Wrong email or Password');
         } else {
+            currentUser.push(isLoggedIn[0]);
             Auth.notify("success", "Login Successful!");
             this
                 .props
                 .history
                 .push("/dashboard");
-            currentUser.push(isLoggedIn[0]);
             localStorage.setItem("userState", JSON.stringify({isLoggedIn: true}))
         }
+    }
+
+    changeTab(){
+        this.props.changeTab(1);
     }
 
     render() {
@@ -50,7 +53,10 @@ export class Login extends Component {
                 color: "white"
             },
             back: {
-            backgroundColor: "#062f4f"}
+            backgroundColor: "#062f4f"},
+            underlineStyle: {
+                borderColor: "#062f4f",
+              }
           }
         return (
             <div className="Login">
@@ -60,6 +66,7 @@ export class Login extends Component {
                         <FontIcon className="material-icons">email</FontIcon>
 
                         <TextField
+                         underlineFocusStyle={styles.underlineStyle}
                         id="email"
                         name="email"
                             className="form-control loginInput"
@@ -72,6 +79,7 @@ export class Login extends Component {
                         <FontIcon className="material-icons">lock</FontIcon>
 
                         <TextField
+                         underlineFocusStyle={styles.underlineStyle}
                         name="pass"
                         onChange={(event, newValue) => this.handleOnChange(event, newValue)}
                         id="pass"
@@ -81,7 +89,7 @@ export class Login extends Component {
                     </div>
                     <br/>
                     <RaisedButton overlayStyle={styles.back} labelStyle={styles.label} type="submit" label="Login"/>
-
+                    <a className="change-tab" onClick={() => this.changeTab()}><p>Don't have an account?</p></a>
                 </form>
 
             </div>

@@ -74,13 +74,11 @@ export class App extends Component {
                         </RaisedButton>
                       
                     : <Link to={"/login"}>
-                        <RaisedButton label="Login/Signup" labelStyle={styles} className="login-button">
-                          <FontIcon className="material-icons">input</FontIcon>
+                        <RaisedButton label="Create Event" labelStyle={styles} className="login-button">
                         </RaisedButton>
                       </Link>
                   : <Link to={"/login"}>
-                    <RaisedButton label="Login/Signup" labelStyle={styles} className="login-button">
-                      <FontIcon className="material-icons">input</FontIcon>
+                    <RaisedButton label="Create Event" labelStyle={styles} className="login-button">
                     </RaisedButton>
                   </Link>}
               </div>

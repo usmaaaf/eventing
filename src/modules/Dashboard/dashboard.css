@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+
 #avatar-img {
     height: 150px;
     padding: 1em;
@@ -6,9 +9,24 @@
     background-color: rgb(224, 220, 220);
 }
 
+.edit-form{
+    display: flex;
+    flex-direction: column;
+}
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+.input-edit{
+    text-align: center;
+    margin: auto;
+}
+
+.title-your-events{
+    font-size: 1.6em;
+    text-align: center;
+    font-family: 'Raleway';
+    color: #B82601;
+}
+
+
 
 .Dashboard h2{
     font-family: 'Indie Flower';

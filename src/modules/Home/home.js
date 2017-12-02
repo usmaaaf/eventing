@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import {Login, Register} from '../index'
-import {GridList, GridTile} from 'material-ui/GridList';
-import {Link} from 'react-router-dom';
-import {Event} from '../../services/eventing'
 import {CurrentEvents} from '../Home/components/events'
 
 import './home.css'
+import { currentUser } from '../../data/users';
 
 
 export class Home extends Component {
   
     render() {
+        console.log(currentUser);
         return (
             <div className="Home"> 
             <h1>Upcoming Events</h1> 

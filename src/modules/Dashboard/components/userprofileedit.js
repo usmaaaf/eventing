@@ -3,10 +3,8 @@ import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import {currentUser} from '../../../data/users'
 import {Auth} from '../../../services/authentication';
+import TextField from 'material-ui/TextField';
 
-/**
- * Dialogs can be nested. This example opens a Date Picker from within a Dialog.
- */
 export class UserEdit extends Component {
     constructor(){
         super();
@@ -43,38 +41,74 @@ export class UserEdit extends Component {
   };
 
   render() {
-   
+    const styles = {
+        label:{
+            fontFamily: "Raleway",
+            color: "white"
+        },
+        back: {
+        backgroundColor: "#062f4f"},
+        underlineStyle: {
+            borderColor: "#062f4f",
+          },
+          input:{
+            textAlign: "center",
+            fontFamily: "Raleway",
+            color: "#062f4f",
+            fontWeight: "Bold",
+            fontSize: "1.2em"
+          },
+          title:{
+              backgroundColor: "#1D2731",
+              color: "white"
+          }
+    }
+
+    const actions=[
+        <RaisedButton overlayStyle={styles.back} labelStyle={styles.label} type="submit" label="Update Profile" onClick={(e) => this.infoEdit(e)} />
+    ]
+    
 
     return (
-      <div>
-        <RaisedButton label="Edit Profile" onClick={this.handleOpen} />
+        
+        
+      <div className="edit-user">
+        <RaisedButton overlayStyle={styles.back} labelStyle={styles.label} label="Edit Profile" onClick={this.handleOpen} />
         <Dialog
+        titleStyle={styles.title}
+        actions={actions}
           title="Edit Profile"
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
          <form onSubmit={(e) => this.infoEdit(e)}>
-                        <label className="col-form-label">
+         <div className="edit-form" >
+                        <label className="input-edit">
                             Name:
                         </label>
-                        <input
-                            className="form-control"
+                        <TextField
+                         inputStyle={styles.input}
+                         underlineFocusStyle={styles.underlineStyle}
+                            className="input-edit"
                             onChange={(e) => this.handleChange(e)}
                             refs="name"
                             type="name"
                             value={this.state.name}/>
 
-                        <label className="col-form-label">
+                        <label className="input-edit">
                             Email:
                         </label>
-                        <input
-                            className="form-control regInput"
+                        <TextField
+                        inputStyle={styles.input}
+                        underlineFocusStyle={styles.underlineStyle}
+                            className="input-edit regInput"
                             name="email"
                             type="email"
                             value={currentUser[0].email} disabled/>
                         <br/>
-                        <RaisedButton type="submit" label="Update Profile" primary={true}/>
+                        </div>
+                        
                     </form>
         </Dialog>
       </div>

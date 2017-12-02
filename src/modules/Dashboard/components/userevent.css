@@ -17,3 +17,9 @@
 .margin-event, .margin-card{
     /* margin-left: 0 !important; */
 }
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

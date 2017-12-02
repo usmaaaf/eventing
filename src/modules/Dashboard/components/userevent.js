@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
+
 import moment from 'moment'
 import {EventEdit} from './eventedit';
-import {userEvent} from '../../../data/events'
-import Avatar from '../avatar.png'
+
 import './userevent.css';
 import FontIcon from 'material-ui/FontIcon';
 import {Toolbar} from 'material-ui/Toolbar';
 
 import IconButton from "material-ui/IconButton";
-import RaisedButton from 'material-ui/RaisedButton';
-import ContentAdd from "material-ui/svg-icons/content/add";
-import {Event} from '../../../services/eventing';
 import {currentUser} from '../../../data/users';
+import ContentClear from 'material-ui/svg-icons/content/clear';
 
 export class Userevent extends Component {
 
@@ -38,9 +35,16 @@ export class Userevent extends Component {
             subtitle: {
                 fontSize: "1.0em",
                 color: "#e8e8e8"
+            },
+            tooltip: {
+                width: "120px"
+            },
+            icon:{
+                color: "#e8e8e8"
             }
 
         }
+
         return (
 
             <div className="event-card margin-event">
@@ -52,26 +56,8 @@ export class Userevent extends Component {
                         // const eventdelete = event;
                         return (
                             <Card className="card margin-card" key={index}>
-
-                                <CardHeader
-                                    subtitleStyle={style.subtitle}
-                                    titleStyle={style.title}
-                                    className="header-bar"
-                                    className="card-header"
-                                    title={event.title}
-                                    subtitle={event.catogery}/>
-
-                                <CardText className="event-address">
-                                    <FontIcon className="material-icons">place</FontIcon>
-                                    <p>
-                                        {event.address}</p>
-                                </CardText>
-
-                                <CardActions className="action-button">
-                                    <RaisedButton
-                                        label="Delete Event"
-                                        onClick={() => this.deleteEvent(event)}/>
-                                         <EventEdit
+                            <div className="header">
+                                <EventEdit
                                     updateEvent={(event) => this.updateEvent(event)}
                                     id={event.id}
                                     title={event.title}
@@ -81,7 +67,29 @@ export class Userevent extends Component {
                                     end={moment(event.endDate).format('YYYY-MM-DD hh:mm:ss a')}
                                     address={event.address}
                                     latlng={event.latlng}/>
-                                </CardActions>
+                                <CardHeader
+                                    subtitleStyle={style.subtitle}
+                                    titleStyle={style.title}
+                                    className="header-bar card-header"
+                                    title={
+                                    event.title}
+                                    subtitle={event.catogery}/>
+                                <IconButton
+                                onClick={() => this.deleteEvent(event)}
+                                iconStyle={style.icon}
+                                    tooltipStyles={style.tooltip}
+                                    tooltip="Delete Event"
+                                    tooltipPosition="bottom-left">
+                                    <ContentClear/>
+                                </IconButton>
+                                </div>
+
+                                <CardText className="event-address">
+
+                                    <FontIcon className="material-icons">place</FontIcon>
+                                    <p>
+                                        {event.address}</p>
+                                </CardText>
 
                                 <Toolbar className="card-footer">
                                     <FontIcon className="material-icons">date_range</FontIcon>

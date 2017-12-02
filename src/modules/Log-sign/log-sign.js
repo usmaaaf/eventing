@@ -8,8 +8,18 @@ import './log-sign.css';
 
 
 export class Log extends Component {
+    constructor(){
+        super();
+        this.state={
+            tabIndex: 0
+        }
+    }
 
-  
+    changeTab(i){
+        this.setState({tabIndex: i
+        });
+        
+    }
     render() {
         const styles = {
             ink :{
@@ -26,15 +36,16 @@ export class Log extends Component {
                
             <div>
                 
-                <Tabs inkBarStyle={styles.ink} tabItemContainerStyle={styles.tab} className="tabs">
-                        <Tab label="Login">
+                <Tabs value={this.state.tabIndex} inkBarStyle={styles.ink} tabItemContainerStyle={styles.tab} className="tabs">
+                        <Tab value={0} label="Login">
+                        
                             <div>
-                            <Login history={this.props.history} />
+                            <Login changeTab={(i) => this.changeTab(i)} history={this.props.history} />
                             </div>
                         </Tab>
-                        <Tab label="Register">
+                        <Tab value={1} label="Register">
                             <div>
-                            < Register history={this.props.history}/>
+                            < Register changeTab={(i) => this.changeTab(i)} history={this.props.history}/>
                             </div>
                         </Tab>
                     </Tabs> 

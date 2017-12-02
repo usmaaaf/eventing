@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import {events, userEvent} from '../../data/events';
 import {MyMap} from '../events/googlemap';
 import FontIcon from 'material-ui/FontIcon';
 import moment from 'moment'

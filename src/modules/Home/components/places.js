@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 import Autocomplete from 'react-google-autocomplete';
 
+
 export class Location extends Component {
 
     handleFormSubmit = (place) => {
@@ -16,6 +17,7 @@ export class Location extends Component {
         return (
             <div className="locate">
                 <Autocomplete
+                value={this.props.event.address}
                     style={{
                     width: '90%'
                 }}

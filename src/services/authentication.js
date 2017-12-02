@@ -67,8 +67,11 @@ export class Auth {
     //Logout
     static logout = () => {
         localStorage.clear();
+        console.log(currentUser);
         currentUser.pop();
+        console.log(currentUser);
     }
+    
 
     //toastr
     static notify = (condition, value) => {
@@ -80,5 +83,6 @@ export class Auth {
             toast.warn(value, {position: toast.POSITION.TOP_CENTER});
         }
     };
+
 
 }

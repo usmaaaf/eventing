@@ -19,6 +19,7 @@ import Subheader from 'material-ui/Subheader';
 export class Dashboard extends Component {
     constructor() {
         super();
+        console.log(currentUser);
         this.state = {
             events: events,
             userEvent: userEvent,
@@ -64,7 +65,7 @@ export class Dashboard extends Component {
                         <div className="dashboard">
                             <h2 className="dash-text">Dashboard</h2>
                             <div className="image-div">
-                                <img id="avatar-img" src={Avatar} alt="avatar" circle responsive/>
+                                <img id="avatar-img" src={Avatar} alt="avatar" circle="true" responsive="true"/>
                             </div>
                             <p className="dash-text">{currentUser[0].name}</p>
                             <UserEdit/>
@@ -85,7 +86,7 @@ export class Dashboard extends Component {
                             <Create
                             closeform={()=> this.closeform()}
                                 addEvent={(title, catogery, description, startTime, endTime, address, latlng) => this.addEvent(title, catogery, description, startTime, endTime, address, latlng)}/> </Paper> </div>: null}
-                            <p>YOUR EVENTS</p>
+                            <p className="title-your-events">YOUR EVENTS</p>
                         <Userevent
                             deleteEvent={(event) => this.deleteEvent(event)}
                             updateEvent={(event) => this.updateEvent(event)}

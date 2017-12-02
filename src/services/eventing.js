@@ -1,14 +1,10 @@
 import uuid from 'uuid';
-import React, {Component} from 'react';
 import 'react-toastify/dist/ReactToastify.min.css';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import moment from 'moment'
-import {View} from '../modules/events/viewEvent'
 
-import {users, currentUser} from '../data/users';
-import {events, userEvent} from '../data/events';
-import Avatar from '../modules/Dashboard/avatar.png';
+
+import {currentUser} from '../data/users';
+import {events} from '../data/events';
+
 
 export class Event {
     static deleteEvent = (event)=>{

@@ -12,7 +12,7 @@ export class Register extends Component {
         super();
         this.state = {
             name: "",
-            error: "",
+            passerror: "", nameError :"", emailError :"", confirmError :"", 
             email: "",
             pass : "",
             confirmpass: ""
@@ -22,10 +22,9 @@ export class Register extends Component {
     handleOnChange(event, newValue){
          this.setState({
              [event.target.name]: newValue
-         })
-         if(event.target.name === "pass"){
-             this.caution();
-         }
+         });
+             this.caution(event.target.name);
+         
          
      }
 
@@ -36,7 +35,7 @@ export class Register extends Component {
         const passwordlen = Auth.passwordlength(this.state.pass);
         const confirmlen = Auth.passwordlength(this.state.confirmpass);
         if (this.state.name === "") {
-            Auth.notify("error", "Please Enter your Name");
+            this.setState({nameError: "Please Enter your name."});
         } else if (this.state.email === "") {
             Auth.notify("error", "Please Enter your Email Address");
         } else if (this.state.pass === "") {
@@ -63,14 +62,20 @@ export class Register extends Component {
         }
     }
 
-    caution() {
+    caution(target) {
+    if(target === "pass"){
         if (this.state.pass.length > 4) {
             this.setState({error: ""});
         } 
         else {
             this.setState({error: "Your password must be 6 characters long."});
         }
+    } 
     }
+    
+    changeTab(){
+        this.props.changeTab(0);
+    }    
 
     render() {
         const styles = {
@@ -79,7 +84,10 @@ export class Register extends Component {
                 color: "white"
             },
             back: {
-            backgroundColor: "#062f4f"}
+            backgroundColor: "#062f4f"},
+            underlineStyle: {
+                borderColor: "#062f4f",
+              }
           }
 
         return (
@@ -91,7 +99,8 @@ export class Register extends Component {
                             <FontIcon className="material-icons">person</FontIcon>
                        
                         <TextField
-                            className="form-control regInput"
+                        underlineFocusStyle={styles.underlineStyle}
+                            errorText={this.state.nameError}
                             type="text"
                             placeholder="Name"
                             name="name"
@@ -103,7 +112,8 @@ export class Register extends Component {
                             <FontIcon className="material-icons">email</FontIcon>
                         </label>
                         <TextField
-                            className="form-control regInput"
+                        underlineFocusStyle={styles.underlineStyle}
+                        errorText={this.state.emailError}
                             type="text"
                             placeholder="Email"
                             name="email"
@@ -115,12 +125,12 @@ export class Register extends Component {
                             <FontIcon className="material-icons">lock</FontIcon>
                         </label>
                         <TextField
+                        underlineFocusStyle={styles.underlineStyle}
                            
                             className="form-control regInput"
                             type="password"
                             placeholder="Password"
-                            
-                                errorText={this.state.error}
+                            errorText={this.state.passerror}
                             name="pass"
                             onChange={(event, newValue) => this.handleOnChange(event, newValue)}/> 
                     </div>
@@ -130,7 +140,8 @@ export class Register extends Component {
                             <FontIcon className="material-icons">lock</FontIcon>
                         </label>
                         <TextField
-                            className="form-control regInput"
+                        underlineFocusStyle={styles.underlineStyle}
+                        errorText={this.state.confirmError}
                             type="password"
                             placeholder="Confirm Password"
                             name="confirmpass"
@@ -138,6 +149,7 @@ export class Register extends Component {
                     </div>
                     <br/>
                     <RaisedButton type="submit" overlayStyle={styles.back} labelStyle={styles.label} label="Register" />
+                    <a className="change-tab" onClick={() => this.changeTab()}><p>Already have an account?</p></a>
                 </form>
 
             </div>
