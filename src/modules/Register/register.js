@@ -42,9 +42,9 @@ export class Register extends Component {
         } else if (emailCheck) {
             this.setState({nameError: null, passerror: null, emailError:  "Invalid Email Address", confirmError: null});
         } else if (this.state.pass === "") {
-            this.setState({nameError: null, passerror: "Please Enter your name.", emailError: null, confirmError: null});
+            this.setState({nameError: null, passerror: "Please Enter your Password.", emailError: null, confirmError: null});
         } else if (this.state.confirmpass === "") {
-            this.setState({nameError: null,confirmError: "Please Confirm password", passerror: null, emailError: null});
+            this.setState({nameError: null,confirmError: "Please Confirm your password", passerror: null, emailError: null});
         } else if (confirmPass) {
             this.setState({nameError: null,confirmError:  "Password does not match! Enter correct password", passerror:  "Password does not match! Enter correct password", emailError: null});
         }

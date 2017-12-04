@@ -5,11 +5,6 @@ const users = [{
     password: "a"
 }];
 
-const currentUser = [{
-    id: 1,
-    name: 'Muhammad Usman Farooq',
-    email: 'a@a.com',
-    password: "a"
-}];
+const currentUser = [];
 
 export {users, currentUser};
