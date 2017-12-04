@@ -18,15 +18,29 @@ export class Reset extends Component {
             this.props.history.push("/");
         }
     }
+
   
     render() {
+        const styles = {
+            label:{
+                fontFamily: "Raleway",
+                color: "white"
+            },
+            back: {
+            backgroundColor: "#062f4f"},
+            underlineStyle: {
+                borderColor: "#062f4f",
+              }
+          }
+
         return (
             <div className="Reset">
             <h2>Reset</h2>   
             <form onSubmit={(e) => this.renderLogin(e)}> 
                 <input className="form-control resetInput" type="text" ref="email" placeholder="Enter your email address"/>
                 <br/>
-                <RaisedButton label="Reset" primary={true} type="submit" />
+                <br/>
+                <RaisedButton overlayStyle={styles.back} labelStyle={styles.label} label="Reset" primary={true} type="submit" />
             </form>   
             </div>
         );

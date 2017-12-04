@@ -16,15 +16,17 @@ export class Location extends Component {
         return (
             <div className="locate">
                 <Autocomplete
+               
                     style={{
                     width: '90%',
                     zIndex: "22"
                 }}
                     onPlaceSelected={(place) => {
-                    console.log(place);
+                    
                     this.handleFormSubmit(place);
                 }}
-                    // bounds={{}}
+                types={['geocode']}
+                componentRestrictions={{country: "pk"}}
                     />
             </div>
 

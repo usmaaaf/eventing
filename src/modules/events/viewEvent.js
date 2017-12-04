@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Toolbar} from 'material-ui/Toolbar';
+
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {MyMap} from '../events/googlemap';
@@ -16,7 +19,7 @@ const customContentStyle = {
 
 export class View extends Component {
   state = {
-    open: false,
+    open: this.props.state,
   };
 
   handleOpen = () => {
@@ -28,9 +31,12 @@ export class View extends Component {
   };
 
   handleModalClose = (buttonClicked) => {
-    console.log("Apple");
     this.setState({open: false});
   };
+
+  componentWillReceiveProps(){
+    this.setState({open: this.props.state})
+  }
 
   render() {
     const actions = [
@@ -40,18 +46,39 @@ export class View extends Component {
         onClick={this.handleClose}
       />,
     ];
+    const style ={
+      title:{
+          fontSize: "1.4em",
+          color: "#e8e8e8"
+      },
+      subtitle:{
+          fontSize: "1.0em",
+          color: "#e8e8e8"
+      }
 
-    const style = {
-      // height: "32px",
-      
-    };
+  }
+  
+
     return (
-      <div className="view-button">
-        <RaisedButton style={style} label="Event Details" onClick={this.handleOpen} />
+      <div >
+        <Card onClick={() => this.handleOpen()} className="card" key={this.props.id} >
+
+            <CardHeader subtitleStyle={style.subtitle} titleStyle={style.title} className="card-header" title={this.props.title} subtitle={this.props.catogery}/>
+            <CardText className="event-address">
+                <FontIcon className="material-icons">place</FontIcon>
+                <p>{this.props.address}</p>
+            </CardText>
+            
+            <Toolbar className="card-footer">
+                <FontIcon className="material-icons">date_range</FontIcon>
+                    <p>{moment(this.props.start).format('YYYY-MM-DD hh:mm:ss a')}</p>
+            </Toolbar>
+            
+        </Card>
         <Dialog 
         className="dialog"
         autoScrollBodyContent={true}
-        onRequestClose={() => this.handleClose()}
+        onRequestClose={() => this.props.handleClose()}
           actions={actions}
           contentStyle={customContentStyle}
           open={this.state.open}

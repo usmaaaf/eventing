@@ -77,7 +77,9 @@
 .Login{
     padding-bottom: 3.05em;
 }
-
+.toastify-content--success{
+    background: #b82601 !important;
+}
 
 .button-logout{
     color: white !important;

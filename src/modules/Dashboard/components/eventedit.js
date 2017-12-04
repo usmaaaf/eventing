@@ -9,6 +9,7 @@ import {Location} from '../../Home/components/places';
 import './eventedit.css'
 import TextField from 'material-ui/TextField';
 import EditorModeEdit from 'material-ui/svg-icons/editor/mode-edit';
+import ContentClear from 'material-ui/svg-icons/content/clear';
 
 import IconButton from "material-ui/IconButton";
 import MapsAddLocation from 'material-ui/svg-icons/maps/add-location';
@@ -127,7 +128,7 @@ export class EventEdit extends Component {
                 <Dialog
                 actions={actions}
                 titleStyle={style.title}
-                    title="Edit Event"
+                title={<div className="dialog-head"><span>Edit Event</span><ContentClear onClick={() => this.handleClose()} className="iconic"/></div>}
                     onRequestClose={() => this.handleClose()}
                     open={this.state.open}
                     autoScrollBodyContent={true}>

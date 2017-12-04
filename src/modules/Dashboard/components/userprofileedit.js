@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {currentUser} from '../../../data/users'
 import {Auth} from '../../../services/authentication';
 import TextField from 'material-ui/TextField';
+import ContentClear from 'material-ui/svg-icons/content/clear';
 
 export class UserEdit extends Component {
     constructor(){
@@ -77,7 +78,7 @@ export class UserEdit extends Component {
         <Dialog
         titleStyle={styles.title}
         actions={actions}
-          title="Edit Profile"
+        title={<div className="dialog-head"><span>Edit Profile</span><ContentClear onClick={() => this.handleClose()} className="iconic"/></div>}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}

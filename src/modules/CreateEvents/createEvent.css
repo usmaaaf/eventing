@@ -1,15 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Spectral+SC');
 
-
-
-.create-event > div{
-    width: 70%;
-}
 .create-event{
     display: flex !important;
     flex-direction: row;
     justify-content: center;
+}
+
+.iconic{
+    color: white !important;
+    cursor: pointer;
+}
+.dialog-head{
+    display: flex;
+}
+.dialog-head span{
+    width: 99%;
+    text-align: center;
 }
 .datetime-container input{
     text-align: center;
@@ -59,6 +66,10 @@ form{
     margin: auto 0;
     margin-right: 5px;
     font-family: 'Spectral SC' !important;
+}
+
+.input{
+    padding-bottom: 8px;
 }
 
 .datetime-container{

@@ -16,6 +16,7 @@ export class Log extends Component {
     }
 
     changeTab(i){
+        console.log("Aloo")
         this.setState({tabIndex: i
         });
         

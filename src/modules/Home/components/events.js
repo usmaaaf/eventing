@@ -8,6 +8,18 @@ import FontIcon from 'material-ui/FontIcon';
 import {Toolbar} from 'material-ui/Toolbar';
 
 export class CurrentEvents extends Component {
+    constructor(){
+        super();
+        this.state={
+            isDialogOpen: false
+        }
+    }
+    cardClick(){
+        this.setState({
+            isDialogOpen: !this.state.isDialogOpen
+        })
+        console.log('asdasddasd')
+    }
     render() {
         const style ={
             title:{
@@ -25,32 +37,18 @@ export class CurrentEvents extends Component {
                 {events
                     .map((event, index) => {
                         return (
-                            <Card className="card" key={event.id}>
-
-                                <CardHeader subtitleStyle={style.subtitle} titleStyle={style.title} className="card-header" title={event.title} subtitle={event.catogery}/>
-                                <CardText className="event-address">
-                                    <FontIcon className="material-icons">place</FontIcon>
-                                    <p> {event.address}</p>
-                                </CardText>
-                               
-                                <CardActions>
-                                    <View
-                                    
-                                        title={event.title}
-                                        catogery={event.catogery}
-                                        description={event.description}
-                                        start={moment(event.startDate).format('YYYY-MM-DD hh:mm:ss a')}
-                                        end={moment(event.endDate).format('YYYY-MM-DD hh:mm:ss a')}
-                                        address={event.address}
-                                        latlng={event.latlng}/>
-                                </CardActions>
-                                
-                                    <Toolbar className="card-footer">
-                                        <FontIcon className="material-icons">date_range</FontIcon>
-                                            <p>{moment(event.startDate).format('YYYY-MM-DD hh:mm:ss a')}</p>
-                                    </Toolbar>
-                                
-                            </Card>
+                            <View
+                            id={event.id}
+                            state={this.state.isDialogOpen}
+                            handleClose={() => this.cardClick()}
+                            title={event.title}
+                            catogery={event.catogery}
+                            description={event.description}
+                            start={moment(event.startDate).format('YYYY-MM-DD hh:mm:ss a')}
+                            end={moment(event.endDate).format('YYYY-MM-DD hh:mm:ss a')}
+                            address={event.address}
+                            latlng={event.latlng}/>
+                            
                         )
                     })}
             </div>

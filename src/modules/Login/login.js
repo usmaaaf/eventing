@@ -13,7 +13,9 @@ export class Login extends Component {
         super();
         this.state = {
                 email: "",
-                pass : ""
+                pass : "",
+                passerror: "",
+                emailerror: "",
         }
     }
     
@@ -28,7 +30,7 @@ export class Login extends Component {
         const isLoggedIn = Auth.login(this.state.email, this.state.pass);
         const emailCheck = Auth.emailCheck(this.state.email);
         if (emailCheck) {
-            Auth.notify("error", "Invalid Email Address");
+            this.setState({ passerror: null, emailError: "Invalid Email Address"});
         } else if (!isLoggedIn) {
             Auth.notify("error", 'Wrong email or Password');
         } else {
@@ -69,6 +71,7 @@ export class Login extends Component {
                          underlineFocusStyle={styles.underlineStyle}
                         id="email"
                         name="email"
+                        errorText={this.state.emailError}
                             className="form-control loginInput"
                             type="text"
                             placeholder="Email"

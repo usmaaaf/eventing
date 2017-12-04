@@ -25,13 +25,6 @@ export class Auth {
         }
     };
 
-    static passwordlength = (password) => {
-        if (password.length <= 5) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     static emailCheck = (email) => {
         var re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;

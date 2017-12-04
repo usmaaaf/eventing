@@ -4,7 +4,18 @@ import Autocomplete from 'react-google-autocomplete';
 
 
 export class Location extends Component {
+    constructor(){
+        super();
+        this.state={
+            address: ""
+        }
+    }
 
+    componentDidMount(){
+        this.setState({
+            address: this.props.event.address
+        })
+    }
     handleFormSubmit = (place) => {
         geocodeByAddress(place.formatted_address)
             .then(results => getLatLng(results[0]))
@@ -12,12 +23,19 @@ export class Location extends Component {
             .catch(error => console.error('Error', error))
     }
 
+    handleOnChange(event){
+        this.setState({
+            address: event.target.value
+        }) 
+    }
+
     render() {
 
         return (
             <div className="locate">
                 <Autocomplete
-                value={this.props.event.address}
+                value={this.state.address}
+                onChange={(event) => this.handleOnChange(event)}
                     style={{
                     width: '90%'
                 }}
@@ -25,7 +43,8 @@ export class Location extends Component {
                     console.log(place);
                     this.handleFormSubmit(place);
                 }}
-                    // bounds={{}}
+                types={['geocode']}
+                componentRestrictions={{country: "pk"}}
                     />
             </div>
 

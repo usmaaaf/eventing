@@ -53,7 +53,6 @@ export class Userevent extends Component {
                     .userevents
                     .filter((event) => currentUser[0].id === event.userId)
                     .map((event, index) => {
-                        // const eventdelete = event;
                         return (
                             <Card className="card margin-card" key={index}>
                             <div className="header">

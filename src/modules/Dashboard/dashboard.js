@@ -6,24 +6,18 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import {Event} from '../../services/eventing'
 import Avatar from './avatar.png';
 import './dashboard.css';
-import Paper from 'material-ui/Paper';
 import {Userevent} from './components/userevent';
 import {userEvent, events} from '../../data/events';
 import {Auth} from '../../services/authentication';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentClear from 'material-ui/svg-icons/content/clear';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 import Subheader from 'material-ui/Subheader';
 
 
 export class Dashboard extends Component {
     constructor() {
         super();
-        console.log(currentUser);
         this.state = {
             events: events,
             userEvent: userEvent,
-            create: false
         }
     }
 
@@ -46,17 +40,7 @@ export class Dashboard extends Component {
             create:true
         })
     }
-    closecreate(){
-        this.setState({
-            create:false
-        })
-    }
-
-    closeform(){
-        this.setState({
-            create:false
-        })
-    }
+    
     render() {
         return (
             <div className="Dashboard">
@@ -70,22 +54,15 @@ export class Dashboard extends Component {
                             <p className="dash-text">{currentUser[0].name}</p>
                             <UserEdit/>
                             <Subheader className="subheader-text"> Create Event </Subheader>
-                            <FloatingActionButton className="add-button" onClick={() => this.createevent()}>
-                                <ContentAdd/>
-                            </FloatingActionButton>
+                            <Create
+                            
+                                addEvent={(title, catogery, description, startTime, endTime, address, latlng) => this.addEvent(title, catogery, description, startTime, endTime, address, latlng)}/> 
+                                
                         </div>
                     </GridTile>
                     <GridTile cols={9}>
-                        { this.state.create ?
-                        <div>
-                            <Paper className='paper' zDepth={2}>
-                            <FloatingActionButton className="add-button" onClick={() => this.closecreate()}>
-                            <ContentClear/>
-                            </FloatingActionButton>
                             
-                            <Create
-                            closeform={()=> this.closeform()}
-                                addEvent={(title, catogery, description, startTime, endTime, address, latlng) => this.addEvent(title, catogery, description, startTime, endTime, address, latlng)}/> </Paper> </div>: null}
+                           
                             <p className="title-your-events">YOUR EVENTS</p>
                         <Userevent
                             deleteEvent={(event) => this.deleteEvent(event)}
