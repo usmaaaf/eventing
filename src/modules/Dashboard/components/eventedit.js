@@ -126,6 +126,7 @@ export class EventEdit extends Component {
                     <EditorModeEdit/>
                 </IconButton>
                 <Dialog
+                className="dialog-create"
                 actions={actions}
                 titleStyle={style.title}
                 title={<div className="dialog-head"><span>Edit Event</span><ContentClear onClick={() => this.handleClose()} className="iconic"/></div>}

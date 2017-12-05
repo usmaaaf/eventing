@@ -63,3 +63,17 @@
 .card-header div span{
     font-family: 'Raleway';
 }
+
+@media only screen and (max-width: 500px) {
+    .event-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    .card{
+        width: 90%;
+        margin: 10px auto !important;
+    }
+}

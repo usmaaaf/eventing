@@ -43,7 +43,6 @@ export class Create extends Component {
   };
 
   handleClose = () => {
-    console.log("Hii")
     this.setState({openDialog: false});
   };
 
@@ -143,6 +142,7 @@ export class Create extends Component {
         </FloatingActionButton>
        <Dialog
        titleStyle={styles.title}
+       className="dialog-create"
           autoScrollBodyContent={true}
           title={<div className="dialog-head"><span>Create Event</span><ContentClear onClick={() => this.handleClose()} className="iconic"/></div>}
           actions={actions}

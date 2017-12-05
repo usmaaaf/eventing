@@ -67,3 +67,24 @@
     flex-direction: row;
     justify-content: center;
 }
+
+@media only screen and (max-width: 500px) {
+    .dialog > div {
+        
+    }
+    .dialog div > div{
+        width: 90% !important;
+
+    }
+    .dialog div div div div{
+      
+        width: 100% !important;
+    }
+    .dialog > div > div{
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    .dialog > div > div > div{
+        margin: auto;
+    }
+}

@@ -72,3 +72,21 @@
 .add-button button div div:hover{
     background-color: #062f4f !important;
 }
+
+@media only screen and (max-width: 500px) {
+    .Dashboard > div > div{
+        width: 100% !important;
+    }
+    .card{
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dialog-create > div > div {
+        margin: auto !important;
+        width: 90% !important;
+    }
+
+    
+}
