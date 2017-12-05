@@ -127,20 +127,24 @@
 }
 
 @media only screen and (min-width: 1024px) {
-    /* .event-card{
+    .user-card{
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
     }
+    
     .card{
         width: 80% !important;
         margin: 10px auto !important;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-    } */
+    } 
     .header{
-        padding: 50px 0;
+        padding: 65px 0;
+    }
+    .user-card .event-address{
+        padding-bottom: 50px !important;
     }
 
     .Log{

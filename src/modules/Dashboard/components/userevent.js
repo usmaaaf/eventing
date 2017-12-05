@@ -47,7 +47,7 @@ export class Userevent extends Component {
 
         return (
 
-            <div className="event-card margin-event">
+            <div className="event-card user-card margin-event">
                 {this
                     .props
                     .userevents
